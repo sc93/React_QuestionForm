@@ -1,4 +1,4 @@
-# Ringle Front end 과제 2
+# Ringle Front end 과제 1
 
 ### #프로젝트 준비
 
