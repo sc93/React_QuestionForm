@@ -68,7 +68,7 @@ const RadioExample = React.memo(
         onChangeExampleContent,
         onChangeExampleChecked,
     }) => {
-        console.log('radio example render');
+        // console.log('radio example render');
         return (
             <ExampleBLock>
                 <input
@@ -102,7 +102,7 @@ const CheckExample = React.memo(
         onChangeExampleContent,
         onChangeExampleChecked,
     }) => {
-        console.log('checkbox example render');
+        // console.log('checkbox example render');
         return (
             <ExampleBLock>
                 <input
@@ -130,7 +130,7 @@ const CheckExample = React.memo(
     },
 );
 const TextExample = React.memo(({ text, onChangeExampleText }) => {
-    console.log('text example render');
+    // console.log('text example render');
     return (
         <ExampleBLock>
             <input
