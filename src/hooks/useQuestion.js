@@ -20,9 +20,7 @@ export const useQuestionList = () => {
 export const useQuestionAdd = () => {
     const dispatch = useDispatch();
     // Question 추가
-    const onAddQuestion = useCallback(() => dispatch(add_question()), [
-        dispatch,
-    ]);
+    const onAddQuestion = () => dispatch(add_question());
     return onAddQuestion;
 };
 
@@ -30,39 +28,29 @@ const useQuestion = (id) => {
     const dispatch = useDispatch();
 
     // Qeustion Form 수정
-    const onQuestionInputChange = useCallback(
-        (e) =>
-            dispatch(
-                change_question_filed({
-                    key: e.target.name,
-                    value: e.target.value,
-                    id,
-                }),
-            ),
-        [dispatch, id],
-    );
+    const onQuestionInputChange = (e) =>
+        dispatch(
+            change_question_filed({
+                key: e.target.name,
+                value: e.target.value,
+                id,
+            }),
+        );
     // Example Type 변경
-    const onSelectBoxChange = useCallback(
-        (e) => dispatch(change_question_type({ type: e.target.value, id })),
-        [dispatch, id],
-    );
+    const onSelectBoxChange = (e) =>
+        dispatch(change_question_type({ type: e.target.value, id }));
+
     // Qeustion 삭제
-    const onRemoveQuestion = useCallback(
-        () => dispatch(remove_question({ id })),
-        [dispatch, id],
-    );
+    const onRemoveQuestion = () => dispatch(remove_question({ id }));
 
     // Example 추가
-    const onAddExample = useCallback(() => dispatch(add_example({ id })), [
-        dispatch,
-        id,
-    ]);
+    const onAddExample = () => dispatch(add_example({ id }));
 
     // Example 삭제
     const onRemoveExample = useCallback(
         (example_id) =>
             dispatch(remove_example({ question_id: id, example_id })),
-        [dispatch, id],
+        [id],
     );
 
     // Radio, Checkbox Type Input Text 변경
@@ -75,20 +63,20 @@ const useQuestion = (id) => {
                     content,
                 }),
             ),
-        [dispatch, id],
+        [id],
     );
 
     // Radio, Checkbox Type checked 변경
     const onChangeExampleChecked = useCallback(
         (example_id) =>
             dispatch(change_example_checked({ question_id: id, example_id })),
-        [dispatch],
+        [id],
     );
 
     //Text Type Input Text 변경
     const onChangeExampleText = useCallback(
         (text) => dispatch(change_example_text({ id, text })),
-        [dispatch],
+        [id],
     );
 
     return {

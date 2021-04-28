@@ -30,6 +30,13 @@ export const questionSlice = createSlice({
             state[key] = value;
         },
         change_question_filed: (state, { payload: { key, value, id } }) => {
+            // const idx = state.questions.findIndex(
+            //     (question) => question.id === id,
+            // );
+            // state.questions[idx] = {
+            //     ...state.questions[idx],
+            //     [key]: value,
+            // };
             state.questions = state.questions.map((question) =>
                 question.id === id ? { ...question, [key]: value } : question,
             );

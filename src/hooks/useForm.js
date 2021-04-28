@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { change_filed } from '../modules/question/questionSlice';
 
@@ -8,13 +7,8 @@ const useForm = () => {
     const dispatch = useDispatch();
 
     //Form 변경
-    const onChangeFiled = useCallback(
-        (e) =>
-            dispatch(
-                change_filed({ key: e.target.name, value: e.target.value }),
-            ),
-        [dispatch],
-    );
+    const onChangeFiled = (e) =>
+        dispatch(change_filed({ key: e.target.name, value: e.target.value }));
 
     return { form_title, form_detail, onChangeFiled };
 };
